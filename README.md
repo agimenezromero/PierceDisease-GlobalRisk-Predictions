@@ -142,6 +142,8 @@ Here we describe the simulation steps to assess PD risk. Although the steps are 
     gl.bottom_labels = True
     gl.left_labels = True
   ```
+  
+  ![Risk in Europe](Figures/Europe_risk_test.png)
 
 # Run example
 
