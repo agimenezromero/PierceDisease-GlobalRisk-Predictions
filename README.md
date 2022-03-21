@@ -91,6 +91,17 @@ Here we describe the simulation steps to assess PD risk. Although the steps are 
       return risk, lons, lats
   ```
 
+We can run the simulation easily providing the input filenames where the climatic variables are stored. In the example below we don't consider the vector climatic suitability.
+
+```python
+  filename_MGDD = "Data/Europe_2019_hot.txt"
+  filename_CDD = "Data/Europe_2019_cold.txt"
+
+  use_vector = False
+
+  risk, lons, lats = disease_simulation(filename_MGDD, filename_CDD, use_vector=use_vector)
+```
+
 * Plot risk
   
   To plot the risk maps we use [Cartopy](https://scitools.org.uk/cartopy/docs/latest/#) library.
@@ -144,6 +155,22 @@ Here we describe the simulation steps to assess PD risk. Although the steps are 
   ```
   
   ![Risk in Europe](Figures/Europe_risk_test.png)
+  
+  We can run the simulation it again now considering the vector climatic suitability
+  
+  ```python
+  filename_MGDD = "Data/Europe_2019_hot.txt"
+  filename_CDD = "Data/Europe_2019_cold.txt"
+
+  use_vector = True
+
+  risk, lons, lats = disease_simulation(filename_MGDD, filename_CDD, use_vector=use_vector)
+  ```
+  
+  which yields the following risk map
+  
+  [Risk in Europe vector](Figures/Europe_risk_test_vector.png)
+
 
 # Run example
 
