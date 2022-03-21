@@ -169,7 +169,7 @@ We can run the simulation easily providing the input filenames where the climati
   
   which yields the following risk map
   
-  [Risk in Europe vector](Figures/Europe_risk_test_vector.png)
+  ![Risk in Europe vector](Figures/Europe_risk_test_vector.png)
 
 
 # Run example
