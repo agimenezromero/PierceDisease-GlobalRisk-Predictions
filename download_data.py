@@ -5,7 +5,7 @@ import os
 os.mkdir("Data")
 
 
-names = ["Europe_2019_hot.grib", "Europe_2019_cold_2.grib", "Europe_2020_cold_1.grib", "Europe_2019_hot.txt", "Europe_2019_hot.txt"]
+names = ["Europe_2019_hot.grib", "Europe_2019_cold_2.grib", "Europe_2020_cold_1.grib", "Europe_2019_hot.txt", "Europe_2019_cold.txt", "vector_Europe.txt"]
 
 for name in names:
 
