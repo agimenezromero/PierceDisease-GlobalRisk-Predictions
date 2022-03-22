@@ -1,5 +1,5 @@
 # Global-risk-predictions-for-Pierce-s-disease-of-grapevines
-This repository contains the an example of the simulation code used to assess global risk of Pierce's Disease of grapevines, published in
+This repository contains an example of the simulation code used to assess global risk of Pierce's Disease of grapevines, published in
 
 Table of contents
 =================
@@ -27,6 +27,8 @@ The model is splitted in two parts: a transmission layer, that models plant to p
 The transmission layer is based on a standard Susceptible-Infected-Remove (SIR) compartmental model. We are only interested in addressing wheter or not the infected population will grow in the future (we model risk), so that the initial exponential approximation of the SIR model is used,
 
 ![equation](https://latex.codecogs.com/gif.image?\dpi{110}I(t)=I(0)\exp(\gamma(R_0-1)t))
+
+Moreover, information on the spatial distribution of the main vector in Europe, *Philaenus spumarius*, is available. Thus, to account for different transmission rates based on differences on vector abundance (indeed the available information is about what is called "climatic suitability") we scale R0 linearly with this quantity (and thus R0 depends on space).
 
 Now, new infections will become or not sucessful at the end of the year (i.e. will still be infective) depending on the climatic layer. The climatic layer is based on the interplay between two factors, the Modified Growing Degree Days (MGDD) and the Cold Degree Days (CDD). 
 
@@ -56,11 +58,11 @@ Here we describe the simulation steps to assess PD risk. Although the steps are 
 
 * Compute MGDD and CDD factors
 
-  Once data has been downloaded, the next step is to compute the climatic variables of interest, i.e. MGDD and CDD anual factors. We provide a julia script 'compute_climatic_variables' that is prepared to work with the provided example. The script loads a self-made library described in [this repository](https://github.com/agimenezromero/ERA5-Land-data-analysis) and computes the climatic variables from the data included in the repository. 
+  Once data has been downloaded, the next step is to compute the climatic variables of interest, i.e. MGDD and CDD anual factors. We provide a julia script 'compute_climatic_variables' that is prepared to work with the provided example. The script loads a self-made library described in [this repository](https://github.com/agimenezromero/ERA5-Land-data-analysis) and computes the climatic variables from the data included in the repository. Nevertheless, we also provide the MGDD and CDD factors already computed for this example.
 
 * Run simulation
   
-  In this example we provide the code to simulate one year of PD progression (as more years would involve upload more and more data).
+  In this example we provide the code to simulate one year of PD progression (as more years would involve upload much more data, which is indeed quite big, ~Gb).
   
   The code is as simple as this
   
@@ -70,7 +72,7 @@ Here we describe the simulation steps to assess PD risk. Although the steps are 
 
     return 1 / (1 + np.exp(-0.0120*(x-975)))
   
-  #Definde CDD factor
+  #Define CDD factor
   def prob_CDD(x):
 
       return 2e7/(2e7 + x**3)
@@ -220,6 +222,12 @@ We can run the simulation easily providing the input filenames where the climati
 - [Cartopy](https://scitools.org.uk/cartopy/docs/latest/#)
 
 # Further usage
+
+In the presented example we make use of GRIB files to compute the climatic variables (indeed this is the tricky part, the simulation itself is pretty easy). However, for other usages, temperature data could be in different formats, such as .csv or excel.
+  
+As previously mentioned, the algorithms to compute MGDD and CDD are described in [this repository](https://github.com/agimenezromero/ERA5-Land-data-analysis), athough they are written to be used with GRIB files using Julia. To compute the climatic variables with other data formats the details of the implementation could change for major efficiency.
+
+Anyone interested to use the approach presented here but having troubles in the implementation (e.g. because she/he is using other data formats) can contact us at alex@ifisc.uib-csic.es.
   
 # Authors
 
