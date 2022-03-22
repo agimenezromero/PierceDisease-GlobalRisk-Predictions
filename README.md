@@ -229,7 +229,20 @@ As previously mentioned, the algorithms to compute MGDD and CDD are described in
 
 Anyone interested to use the approach presented here but having troubles in the implementation (e.g. because she/he is using other data formats) can contact us at alex@ifisc.uib-csic.es.
   
-# Authors
+# Authors 
+- Repository & Code
+  * **Alex Giménez-Romero**
+
+- Paper
+  * **Alex Giménez-Romero**
+  * **Javier Galván Fraile**
+  * **Marina Montesinos**
+  * **Joan Bauzà**
+  * **Martin Godefroid**
+  * **Alberto Fereres**
+  * **Jose J. Ramasco**
+  * **Manuel A. Matias**
+  * **Eduardo Moralejo**
 
 # References
 [1] [H. Feil and A. Purcell, Temperature-dependent growth and survival of xylella fastidiosa in vitro and in potted grapevines, Plant Disease 85, 1230 (2001).](https://apsjournals.apsnet.org/doi/10.1094/PDIS.2001.85.12.1230)
