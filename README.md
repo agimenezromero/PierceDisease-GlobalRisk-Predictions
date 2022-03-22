@@ -193,7 +193,11 @@ We can run the simulation easily providing the input filenames where the climati
 
 # Run example
 
-- To compute the climatic variables just run the Julia script (compute_climatic_variables.jl) via command line as
+- To download the necessary data just run the Python script `download_data.py` via command line as
+
+  `python download_data.py` or in background as `nohup python download_data.py &`
+
+- To compute the climatic variables just run the Julia script `compute_climatic_variables.jl` via command line as
   
   `julia compute_climatic_variables.jl` or in background as `nohup julia compute_climatic_variables.jl &`
   
@@ -220,6 +224,9 @@ We can run the simulation easily providing the input filenames where the climati
 - [Numpy](https://numpy.org/doc/stable/index.html)
 - [Matplotlib](https://matplotlib.org/devdocs/index.html)
 - [Cartopy](https://scitools.org.uk/cartopy/docs/latest/#)
+- [Requests](https://docs.python-requests.org/en/latest/)
+- [sys](https://docs.python.org/3/library/sys.html)
+- [os](https://docs.python.org/3/library/os.html)
 
 # Further usage
 
