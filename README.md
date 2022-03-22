@@ -196,12 +196,14 @@ We can run the simulation easily providing the input filenames where the climati
 - To download the necessary data just run the Python script `download_data.py` via command line as
 
   `python download_data.py` or in background as `nohup python download_data.py &`
+  
+  A folder named "Data" will be created with all the necessary data inside.
 
 - To compute the climatic variables just run the Julia script `compute_climatic_variables.jl` via command line as
   
   `julia compute_climatic_variables.jl` or in background as `nohup julia compute_climatic_variables.jl &`
   
-  However, we also provide the computed climatic variables used for this example.
+  However, we also provide the computed climatic variables used for this example in the Data folder.
 
 - To run the simulation just use the jupyter notebook provided (simulation_test.ipynb)
 
