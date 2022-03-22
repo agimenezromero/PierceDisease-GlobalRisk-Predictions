@@ -5,8 +5,9 @@ Table of contents
 =================
 
 <!--ts-->
-   * [Overview](#overview)
+   * [Abstract](#abstract)
    * [Table of contents](#table-of-contents)
+   * [Model](#model)
    * [Requeriments](#requeriments)
    * [Simulation steps](#simulation-steps)
    * [Example](#run-example)
@@ -14,6 +15,36 @@ Table of contents
    * [Authors](#authors)
    * [License](#license)
 <!--te-->
+
+# Abstract
+
+The clonal lineage of the bacterium *Xylella fastidiosa* (Xf) responsible for Pierce’s disease (PD) poses a threat to viticulture worldwide. Although this vector-transmitted disease has remained mainly restricted to the United States, recent introductions on the islands of Majorca (Spain) and Taiwan have raised concerns about the risk of spreading worldwide. To assess this risk, here we build a climate-driven epidemiological model that simulates PD progression. The model considers the temperature-dependent infection process based on a 3-year inoculation assay and assume local disease propagation when climatic conditions are favourable. The model was successfully validated with spatiotemporal data of the PD distribution in the United States yielding a remarkable ~90% accuracy. Thereafter the model was applied to the main winegrowing regions worldwide, specially focusing in Europe as a case study based on the distribution of the main vector, *Philaenus spumarius*. Our model simulation reveals that most wine-quality producing areas in China, Europe, Argentina, Chile, South Africa, and Australia currently thrive in non-risk or transient-risk zones. To a lesser extent, epidemic-risk zones with low to moderate risk indices appear in coastal zones such as Mallorca and Apulia, where Xf outbreaks have been already detected. The European case shows how models assuming a vector heterogeneous distribution yield lesser extended epidemic-risk zones than previous risk maps. Overall, a global expansion of PD epidemic-risk zones is projected for 2050, although with low increase in risk indices. Our study highlights the importance of considering climate variability and an invasive criterion to obtain precise risk maps for plant health decision-making.
+
+# Model
+
+The model is splitted in two parts: a transmission layer, that models plant to plant disease transmission anually, and a climatic layer, that accounts for symptom-development as function of temperature (i.e. succesful infections that will contribute to produce new infections)
+
+The transmission layer is based on a standard Susceptible-Infected-Remove (SIR) compartmental model. We are only interested in addressing wheter or not the infected population will grow in the future (we model risk), so that the initial exponential approximation of the SIR model is used,
+
+![equation](https://latex.codecogs.com/gif.image?\dpi{110}I(t)=I(0)\exp(\gamma(R_0-1)t))
+
+Now, new infections will become or not sucessful at the end of the year (i.e. will still be infective) depending on the climatic layer. The climatic layer is based on the interplay between two factors, the Modified Growing Degree Days (MGDD) and the Cold Degree Days (CDD). 
+
+MGDDs are a metric of heat accumulation linked to the temperature-dependent growht rate of Xf (measured in [1]). Thus, it can be shown that MGDDs are directly related to bacterial population growth, modelling bacterial load in infected plants. This metric was thereafter correlated with symptom-development after a three-year innoculation experiment. This allows two build a continous function bounded between 0 and 1 relating accumulated MGDD in one year with cumulative probability of symptom development, i.e. cumulative probability of being still infective, F(MGDD).
+
+CDDs are a metric of cold accumulation used to model the so-called winter curing, i.e. infected plants can be cured when exposed to cold temperatures. Experimental data on this effect is not available, so we first correlate the average minimum temperature of the coldest month (Tmin) with CDD accumulation in winter, as has been observed that the disease is not present in zones with Tmin < -1.1ºC [2]. Again, we build a continous function bounded between 0 and 1 relating accumulated CDD in one year and cumulative probability of keeping infection, G(CDD).
+
+Finally, we can integrate both transmission and climatic layers in a single equation
+
+![equation](https://latex.codecogs.com/gif.image?\dpi{110}I(t)=I(t-1)\cdot\exp(\gamma(R_0-1))\cdot&space;F(MGDD(t))\cdot&space;G(CDD(t)))
+
+This allow us to compute the evolution of the infected population in time. We derive a risk index based on the comparison between the current growth of the infected population at time t and its maximum possible growth
+
+![equation](https://latex.codecogs.com/gif.image?\dpi{110}r(t)=\textrm{max}\left\(\frac{\log(I(t)/I(0))}{\gamma(R_0-1)\tau},&space;-1&space;\right\))
+
+All this information is summarised in the following scheme
+
+![scheme](scheme.png)
 
 # Requeriments
 
@@ -189,4 +220,12 @@ We can run the simulation easily providing the input filenames where the climati
 
 # Further usage
   
-  
+# Authors
+
+# References
+[1] [H. Feil and A. Purcell, Temperature-dependent growth and survival of xylella fastidiosa in vitro and in potted grapevines, Plant Disease 85, 1230 (2001).](https://apsjournals.apsnet.org/doi/10.1094/PDIS.2001.85.12.1230)
+
+[2] [H. Feil, W. S. Feil, and A. H. Purcell, Effects of date of inoculation on the within-plant movement of Xylella fastidiosa
+and persistence of pierce’s disease within field grapevines, Phytopathology 93, 244 (2003).](https://apsjournals.apsnet.org/doi/10.1094/PHYTO.2003.93.2.244)
+
+# License
