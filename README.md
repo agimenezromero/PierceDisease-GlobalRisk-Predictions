@@ -260,3 +260,6 @@ Anyone interested to use the approach presented here but having troubles in the 
 and persistence of pierce’s disease within field grapevines, Phytopathology 93, 244 (2003).](https://apsjournals.apsnet.org/doi/10.1094/PHYTO.2003.93.2.244)
 
 # License
+
+This project is licensed under the GNU General Public License v3.0 - see the [LICENSE.md](https://github.com/agimenezromero/Global-risk-predictions-for-Pierce-s-disease-of-grapevines/edit/blob/LICENSE) file for details
+
