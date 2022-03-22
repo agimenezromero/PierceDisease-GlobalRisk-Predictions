@@ -1,5 +1,5 @@
 # Global-risk-predictions-for-Pierce-s-disease-of-grapevines
-This repository contains the simulation code used to assess global risk of Pierce's Disease of grapevines, published in
+This repository contains the an example of the simulation code used to assess global risk of Pierce's Disease of grapevines, published in
 
 Table of contents
 =================
@@ -8,9 +8,9 @@ Table of contents
    * [Abstract](#abstract)
    * [Table of contents](#table-of-contents)
    * [Model](#model)
-   * [Requeriments](#requeriments)
    * [Simulation steps](#simulation-steps)
    * [Example](#run-example)
+   * [Requeriments](#requeriments)
    * [Further usage](#further-usage)
    * [Authors](#authors)
    * [License](#license)
@@ -44,21 +44,7 @@ This allow us to compute the evolution of the infected population in time. We de
 
 All this information is summarised in the following scheme
 
-![scheme](scheme.png)
-
-# Requeriments
-
-### Julia 1.5 or higher installed with the following libraries
-- [GRIB.jl](https://github.com/weech/GRIB.jl)
-- [DataFrames.jl](https://dataframes.juliadata.org/stable/)
-- [Feather.jl](https://github.com/JuliaData/Feather.jl)
-- [Dates.jl](https://docs.julialang.org/en/v1/stdlib/Dates/)
-
-### Python 3.x installed with the following libraries
-- [Numpy](https://numpy.org/doc/stable/index.html)
-- [Matplotlib](https://matplotlib.org/devdocs/index.html)
-- [Cartopy](https://scitools.org.uk/cartopy/docs/latest/#)
-
+![scheme](Figures/Model.png)
 
 # Simulation steps
 
@@ -208,6 +194,8 @@ We can run the simulation easily providing the input filenames where the climati
 - To compute the climatic variables just run the Julia script (compute_climatic_variables.jl) via command line as
   
   `julia compute_climatic_variables.jl` or in background as `nohup julia compute_climatic_variables.jl &`
+  
+  However, we also provide the computed climatic variables used for this example.
 
 - To run the simulation just use the jupyter notebook provided (simulation_test.ipynb)
 
@@ -217,6 +205,19 @@ We can run the simulation easily providing the input filenames where the climati
   * γ (float) - Mortality rate of infected plants - Default: 0.2
   * I0 (float) - Initial number of infected plants - Default: 1.0
   * use_vector (Boolean) - Determines the use of the vector climatic suitability to account for a spatially dependent R0 - Default: False
+
+# Requeriments
+
+### Julia 1.5 or higher installed with the following libraries
+- [GRIB.jl](https://github.com/weech/GRIB.jl)
+- [DataFrames.jl](https://dataframes.juliadata.org/stable/)
+- [Feather.jl](https://github.com/JuliaData/Feather.jl)
+- [Dates.jl](https://docs.julialang.org/en/v1/stdlib/Dates/)
+
+### Python 3.x installed with the following libraries
+- [Numpy](https://numpy.org/doc/stable/index.html)
+- [Matplotlib](https://matplotlib.org/devdocs/index.html)
+- [Cartopy](https://scitools.org.uk/cartopy/docs/latest/#)
 
 # Further usage
   
