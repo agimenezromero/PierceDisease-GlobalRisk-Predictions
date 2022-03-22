@@ -9,7 +9,7 @@ Table of contents
    * [Table of contents](#table-of-contents)
    * [Model](#model)
    * [Simulation steps](#simulation-steps)
-   * [Example](#run-example)
+   * [Run example](#run-example)
    * [Requeriments](#requeriments)
    * [Further usage](#further-usage)
    * [Authors](#authors)
@@ -54,15 +54,15 @@ Here we describe the simulation steps to assess PD risk. Although the steps are 
 
 * Download temperature data
   
-  In our work, temperature data was downloaded from [ERA5-Land dataset](https://cds.climate.copernicus.eu/cdsapp#!/dataset/reanalysis-era5-land?tab=overview) in GRIB format. The necessary data files to run the example are included in this repository.
+In our work, temperature data was downloaded from [ERA5-Land dataset](https://cds.climate.copernicus.eu/cdsapp#!/dataset/reanalysis-era5-land?tab=overview) in GRIB format. The necessary data files to run the example can be downloaded runing the `download_data.py` script (see [Run example](#run-example)). Take into account that the data to download is about 5GB and the process could take some minutes.
 
 * Compute MGDD and CDD factors
 
-  Once data has been downloaded, the next step is to compute the climatic variables of interest, i.e. MGDD and CDD anual factors. We provide a julia script 'compute_climatic_variables' that is prepared to work with the provided example. The script loads a self-made library described in [this repository](https://github.com/agimenezromero/ERA5-Land-data-analysis) and computes the climatic variables from the data included in the repository. Nevertheless, we also provide the MGDD and CDD factors already computed for this example.
+  Once data has been downloaded, the next step is to compute the climatic variables of interest, i.e. MGDD and CDD anual factors. We provide a julia script 'compute_climatic_variables' that is prepared to work with the provided example. The script loads a self-made library described in [this repository](https://github.com/agimenezromero/ERA5-Land-data-analysis) and computes the climatic variables from the data included in the repository. Nevertheless, we also provide the MGDD and CDD factors already computed for this example (the corresponding files are automatically downloaded running the `download example` script).
 
 * Run simulation
   
-  In this example we provide the code to simulate one year of PD progression (as more years would involve upload much more data, which is indeed quite big, ~Gb).
+  In this example we provide the code to simulate only one year of PD progression (more years would require downloading more data files of about 5 GB per year).
   
   The code is as simple as this
   
