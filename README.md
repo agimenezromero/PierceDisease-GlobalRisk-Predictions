@@ -261,5 +261,5 @@ and persistence of pierce’s disease within field grapevines, Phytopathology 93
 
 # License
 
-This project is licensed under the GNU General Public License v3.0 - see the [LICENSE.md](https://github.com/agimenezromero/Global-risk-predictions-for-Pierce-s-disease-of-grapevines/edit/blob/LICENSE) file for details
+This project is licensed under the GNU General Public License v3.0 - see the [LICENSE.md](https://github.com/agimenezromero/Global-risk-predictions-for-Pierce-s-disease-of-grapevines/blob/main/LICENSE) file for details
 
