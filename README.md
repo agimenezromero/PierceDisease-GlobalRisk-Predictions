@@ -24,7 +24,7 @@ The clonal lineage of the bacterium *Xylella fastidiosa* (Xf) responsible for Pi
 
 The model is splitted in two parts: a transmission layer, that models plant to plant disease transmission annually, and a climatic layer, that accounts for symptom-development as function of temperature (i.e. chronic infections that will contribute to produce new infections)
 
-The transmission layer is based on a standard Susceptible-Infected-Remove (SIR) compartmental model. We are only interested in addressing wheter or not the infected population will grow in the future (we model risk), so that the initial exponential approximation of the SIR model is used,
+The transmission layer is based on a standard Susceptible-Infected-Remove (SIR) compartmental model. We are only interested in addressing whether or not the infected population will grow in the future (we model risk), so that the initial exponential approximation of the SIR model is used,
 
 ![equation](https://latex.codecogs.com/gif.image?\dpi{110}I(t)=I(0)\exp(\gamma(R_0-1)t))
 
