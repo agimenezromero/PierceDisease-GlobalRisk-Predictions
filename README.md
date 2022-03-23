@@ -22,7 +22,7 @@ The clonal lineage of the bacterium *Xylella fastidiosa* (Xf) responsible for Pi
 
 # Model
 
-The model is splitted in two parts: a transmission layer, that models plant to plant disease transmission anually, and a climatic layer, that accounts for symptom-development as function of temperature (i.e. succesful infections that will contribute to produce new infections)
+The model is splitted in two parts: a transmission layer, that models plant to plant disease transmission anually, and a climatic layer, that accounts for symptom-development as function of temperature (i.e. chronic infections that will contribute to produce new infections)
 
 The transmission layer is based on a standard Susceptible-Infected-Remove (SIR) compartmental model. We are only interested in addressing wheter or not the infected population will grow in the future (we model risk), so that the initial exponential approximation of the SIR model is used,
 
@@ -30,11 +30,11 @@ The transmission layer is based on a standard Susceptible-Infected-Remove (SIR) 
 
 Moreover, information on the spatial distribution of the main vector in Europe, *Philaenus spumarius*, is available. Thus, to account for different transmission rates based on differences on vector abundance (indeed the available information is about what is called "climatic suitability") we scale R0 linearly with this quantity (and thus R0 depends on space).
 
-Now, new infections will become or not sucessful at the end of the year (i.e. will still be infective) depending on the climatic layer. The climatic layer is based on the interplay between two factors, the Modified Growing Degree Days (MGDD) and the Cold Degree Days (CDD). 
+Now, new infections will become or not chronic at the end of the year (i.e. will still be infective next year) depending on the climatic layer. The climatic layer is based on the interplay between two factors, the Modified Growing Degree Days (MGDD) and the Cold Degree Days (CDD). 
 
-MGDDs are a metric of heat accumulation linked to the temperature-dependent growht rate of Xf (measured in [1]). Thus, it can be shown that MGDDs are directly related to bacterial population growth, modelling bacterial load in infected plants. This metric was thereafter correlated with symptom-development after a three-year innoculation experiment. This allows two build a continous function bounded between 0 and 1 relating accumulated MGDD in one year with cumulative probability of symptom development, i.e. cumulative probability of being still infective, F(MGDD).
+MGDDs are a metric of heat accumulation linked to the temperature-dependent growht rate of Xf (measured in [1]). Thus, it can be shown that MGDDs are directly related to bacterial population growth, modelling bacterial load in infected plants. This metric was thereafter correlated with symptom-development after a three-year innoculation experiment. This allows to build a continous function bounded between 0 and 1 relating accumulated MGDD in one year with cumulative probability of symptom development, i.e. cumulative probability of devloping a chronic infection and be still infective next year. We thereafter refer to this factor as F(MGDD).
 
-CDDs are a metric of cold accumulation used to model the so-called winter curing, i.e. infected plants can be cured when exposed to cold temperatures. Experimental data on this effect is not available, so we first correlate the average minimum temperature of the coldest month (Tmin) with CDD accumulation in winter, as has been observed that the disease is not present in zones with Tmin < -1.1ºC [2]. Again, we build a continous function bounded between 0 and 1 relating accumulated CDD in one year and cumulative probability of keeping infection, G(CDD).
+CDDs are a metric of cold accumulation used to model the so-called winter curing effect, i.e. infected plants can be cured when exposed to cold temperatures. Experimental data on this effect is not available, so we first correlate the average minimum temperature of the coldest month (Tmin) with CDD accumulation in winter, as has been observed that the disease is not present in zones with Tmin < -1.1ºC [2]. Again, we build a continous function bounded between 0 and 1 relating accumulated CDD in one year and cumulative probability of keeping infection, i.e. of developing a chronic infection. We thereafter refer to this factor as G(CDD).
 
 Finally, we can integrate both transmission and climatic layers in a single equation
 
