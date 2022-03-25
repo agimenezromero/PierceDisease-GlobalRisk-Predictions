@@ -28,7 +28,7 @@ The transmission layer is based on a standard Susceptible-Infected-Remove (SIR) 
 
 ![equation](https://latex.codecogs.com/gif.image?\dpi{110}I(t)=I(0)\exp(\gamma(R_0-1)t))
 
-Moreover, information on the spatial distribution of the main vector in Europe, *Philaenus spumarius*, is available. Thus, to account for different transmission rates based on differences on vector abundance (indeed the available information is about what is called "climatic suitability") we scale R0 linearly with this quantity (and thus R0 depends on space).
+Moreover, information on the spatial distribution of the main vector in Europe, *Philaenus spumarius*, is available. Thus, to account for different transmission rates based on differences on vector climatic suitability we scale R0 linearly with this quantity (and thus R0 depends on space).
 
 Now, new infections will become or not chronic at the end of the year (i.e. will still be infective next year) depending on the climatic layer. The climatic layer is based on the interplay between two factors, the Modified Growing Degree Days (MGDD) and the Cold Degree Days (CDD). 
 
