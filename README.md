@@ -54,7 +54,7 @@ Here we describe the simulation steps to assess PD risk. Although the steps are 
 
 * Download temperature data
   
-In our work, temperature data was downloaded from [ERA5-Land dataset](https://cds.climate.copernicus.eu/cdsapp#!/dataset/reanalysis-era5-land?tab=overview) in GRIB format. The necessary data files to run the example can be downloaded runing the `download_data.py` script (see [Run example](#run-example)). Take into account that the data to download is about 5GB and the process could take some minutes.
+In our work, temperature data was downloaded from [ERA5-Land dataset](https://cds.climate.copernicus.eu/cdsapp#!/dataset/reanalysis-era5-land?tab=overview) in GRIB format. The necessary data files to run the example can be downloaded runing the `download_data.py` script (see [Run example](#run-example)) or accessing [this zenodo repository](https://zenodo.org/record/6397388#.YkV2wHVBw3F). Take into account that the data to download is about 5GB and the process could take some minutes.
 
 * Compute MGDD and CDD factors
 
@@ -196,6 +196,8 @@ We can run the simulation easily providing the input filenames where the climati
 - To download the necessary data just run the Python script `download_data.py` via command line as
 
   `python download_data.py` or in background as `nohup python download_data.py &`
+  
+  Alternatively, the data can be downloaded from [this zenodo repository](https://zenodo.org/record/6397388#.YkV2wHVBw3F)
   
   A folder named "Data" will be created with all the necessary data inside.
 
