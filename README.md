@@ -1,4 +1,4 @@
-# Global-risk-predictions-for-Pierce-s-disease-of-grapevines
+# Global risk predictions for Pierce's disease of grapevines
 This repository contains an example of the simulation code used to assess global risk of Pierce's Disease of grapevines, published in
 
 Table of contents
